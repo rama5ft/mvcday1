@@ -1,0 +1,47 @@
+﻿@model List<mvcday1.Models.MOVIE>
+@{
+    ViewBag.Title = "MovieIndexs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+
+    <div class="card-body" color="pink">
+        <div class="jumbotron">
+            <h1 class="display-8"><marquee direction="right" color="blue">MovieDetails!!!! </marquee></h1>
+
+        </div>
+    </div>
+
+    
+    <p class="align-items-sm-center" style="color:white"> @Html.ActionLink("NewMovie", "Createm", "Movies") </p>
+    <hr class="my-4">
+
+
+
+    <table class=" table table-bordered   table-light  table-hover">
+        <tr>
+
+            <th> Id</th>
+
+            <th>Moviename</th>
+            <th>Genre</th>
+        </tr>
+        @foreach (var movie in Model)
+        {
+        <tr>
+            <td> @movie.id</td>
+            <td> @Html.ActionLink(movie.Moviename, "Moviedetails", "Movies", new { id = movie.id }, null)</td>
+            <td>@movie.Genre.Name</td>
+            <td>   @Html.ActionLink("Edit", "EditMovieDetails", "Movies", new { id = movie.id }, new { @class = "btn btn-secondary" })</td>
+            <td>   @Html.ActionLink("Delete", "DeleteMovieDetails", "Movies", new { id = movie.id }, new { @class = "btn btn-primary" })</td>
+
+        </tr>
+        }
+
+    </table>
+
+
+</div>
+

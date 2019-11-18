@@ -1,0 +1,34 @@
+﻿@model List<mvcday1.Models.Customer>
+@{
+    ViewBag.Title = "CustomerName";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- <div class="jumbotron jumbotron-fluid">-->
+<!--  <h1 class="display-4">CustomerDetails</h1>-->
+<div class="card">
+    <div class="card-body">
+        <div class="jumbotron">
+            <h1 class="display-8"><marquee direction="right" color="green">CustomerDeatils!!!! </marquee></h1>
+
+
+        </div>
+    </div>
+    <p class="badge-info">The movies searched by customer</p>
+    <hr class="my-4">
+
+
+
+
+    <p> Customer Name: @Model.customer.Customername</p>
+    <ul>
+        @foreach (var movie in Model.Movies1)
+        {
+            <li> @movie.name</li>
+        }
+
+    </ul>
+
+   

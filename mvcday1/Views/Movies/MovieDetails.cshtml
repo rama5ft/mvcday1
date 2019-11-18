@@ -1,0 +1,43 @@
+﻿@model mvcday1.Models.MOVIE
+
+@{
+    ViewBag.Title = "MovieDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="card">
+    <div class="card-body" color="black">
+        <div class="jumbotron">
+            <h1 class="display-8"><marquee direction="right" color="black">MovieDetails!!!! </marquee></h1>
+
+
+        </div>
+    </div>
+
+    @if (Model != null)
+    {
+        <h2><b>Customername:</b>@Model.Moviename</h2>
+        <ol>
+            @*<li>Genre:@Model.Genre</li>*@
+            <li>Releaseddate:@Model.ReleaseDate.Value.ToLongDateString()</li>
+            <li>DateAdded:@Model.DateAdded.Value.ToLongDateString()</li>
+            <li>Available Stock:@Model.AvailableStock</li>
+
+
+
+        </ol>
+    }
+    else
+
+    {
+        <text>no records founds</text>
+    }
+
+</div>
+@Html.ActionLink("BackToList", "MovieIndexs", "Movies")
+
+
+

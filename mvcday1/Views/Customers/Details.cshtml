@@ -1,0 +1,36 @@
+﻿@model mvcday1.Models.Customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-body" color="pink">
+        <div class="jumbotron">
+            <h1 class="display-8"><marquee direction="right" color="blue">CustomerDetails!!!! </marquee></h1>
+
+
+        </div>
+    </div>
+
+    @if (Model != null)
+    {
+        <h2><b>Customername:</b>@Model.Customername</h2>
+        <ul>
+            <li>Birthdate:@Model.Birthdate.Value.ToLongDateString()</li>
+            <li>Gender:@Model.Gender</li>
+            <li>City:@Model.City</li>
+            <li>SignUpFee:@Model.MemberShipType.SignUpFee</li>
+            <li>Duration:@Model.MemberShipType.Duration</li>
+            <li>Discount:@Model.MemberShipType.Discount</li>
+
+
+        </ul>
+    }
+    else
+    {
+        <text>no records founds</text>
+    }
+</div>
+
+@Html.ActionLink("BackToList", "Index", "Customers")
+

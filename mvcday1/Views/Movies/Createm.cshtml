@@ -1,0 +1,59 @@
+﻿@model mvcday1.Models.MOVIE
+@{
+    ViewBag.Title = "Createm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add New Movie</h2>
+<div class="container" style="background-color:peachpuff">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group" style="color:darkmagenta">
+            @Html.LabelFor(c => c.Moviename)
+            @Html.TextBoxFor(c => c.Moviename, new { @class = "form-text text-muted", autocomplte = "off", required = true })
+            @*@Html.ValidationMessageFor(c => c.Moviename)*@
+
+        </div>
+
+
+        <div class="form-group" style="color:Blue">
+            @Html.LabelFor(c => c.ReleaseDate)
+            @Html.TextBoxFor(c => c.ReleaseDate, new { @class = "form-control-file", autocomplte = "off", type = "date", style = "color:red", required = true })
+            @*  @Html.ValidationMessageFor(c => c.ReleaseDate)*@
+
+        </div>
+        <div class="form-group" style="color:firebrick">
+            @Html.LabelFor(c => c.DateAdded)
+            @Html.TextBoxFor(c => c.DateAdded, new { @class = "form-control", autocomplte = "off", type = "date", style = "color:red" })
+            @Html.ValidationMessageFor(c => c.DateAdded)
+
+
+        </div>
+        <div class="form-group" style="color:palevioletred">
+            @Html.LabelFor(c => c.AvailableStock)
+            @Html.TextBoxFor(c => c.AvailableStock, new { @class = "form-control", autocomplte = "off", required = true })
+              @Html.ValidationMessageFor(c => c.AvailableStock)
+
+        </div>
+        <div class="form-group" style="color:darkviolet">
+            @Html.LabelFor(c => c.GenreId)
+            @Html.DropDownList("GenreId", null, new { @class = "form-control", autocomplte = "off" })
+            @Html.ValidationMessageFor(c => c.GenreId)
+        </div>
+        <div class="form-group">
+
+            <input type="submit" name="cmdsubmit" class="btn btn-outline-success" />
+
+
+        </div>
+        @Html.ActionLink("BackToList", "MovieIndexs", "Movies")
+
+
+    }
+
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")}
+

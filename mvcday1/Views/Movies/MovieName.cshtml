@@ -1,0 +1,21 @@
+﻿@model mvcday1.ViewModel.CustomerMovieViewModel
+@{
+    ViewBag.Title = "MovieName";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron jumbotron-fluid">
+
+    <h1 class="display-4">MovieDetails</h1>
+
+  
+
+
+    <p> Movie Name: @Model.Movie.Moviename</p>
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li> @customer.Customername</li>
+        }
+
+    </ul>
+</div>
